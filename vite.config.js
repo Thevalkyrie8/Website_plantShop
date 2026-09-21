@@ -1,8 +1,8 @@
 import { defineConfig } from 'vitest/config'
 import react from '@vitejs/plugin-react'
 
-export default defineConfig({
-  base: '/Website_plantShop/', // <-- THÊM DÒNG NÀY VÀO ĐÂY
+export default defineConfig(({ command }) => ({
+  base: command === 'build' ? '/Website_plantShop/' : '/',
 
   plugins: [react()],
 
@@ -21,4 +21,4 @@ export default defineConfig({
     environment: 'jsdom',
     globals: true,
   },
-})
+}))
